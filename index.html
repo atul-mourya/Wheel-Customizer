@@ -1,0 +1,296 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+     "http://www.w3.org/TR/html4/strict.dtd">
+
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Dot Immersive</title>
+    <link rel="shortcut icon" href="custom/image/icons/fav.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="custom/plugins/colorpicker/jcolor.min.js"></script>
+    <link href="custom/plugins/colorpicker/jcolor.min.css" rel="stylesheet"></script>
+    <script src="custom/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300|Aref+Ruqaa:700|Montserrat:300,500|Lora:400i" rel="stylesheet">
+    <link href="custom/css/configurator.css" rel="stylesheet">
+    
+    <script src="custom/plugins/clientJS/client.min.js"></script>    
+    <script src="custom/js/three.min.js"></script>
+    <script src="custom/js/tween.min.js"></script>
+    <script src="custom/js/OrbitControls.min.js"></script>
+    <script src="custom/js/Projector.min.js"></script>
+    <script src="custom/js/CSS3DRenderer.js"></script>
+    <script src="custom/js/stats.min.js"></script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.my-color-picker').colorpicker({
+                color: '#b00b1e',
+                colorSpace: 'rgb',
+                displayColor: 'hex',
+            });
+            // if(isMobileDevice == false) {
+            //     $('[data-toggle="tooltip"]').tooltip({ placement : 'auto', container: 'body'}); 
+            // };
+            $('#scrollContainer').slimScroll({
+                alwaysVisible: true,
+                color: '#fff',
+                position: 'left',
+                height: '100%',
+                railVisible: true, 
+            });
+        });
+    </script>
+
+    <div id="immersiveLogo">
+        <a href="http://www.dotimmersive.com" target="_blank"><img src="custom/image/icons/dotimmersive.png"></a>
+    </div>
+    <div class="loaderPanel">
+        <div class="Loader-Title">
+            <img src="custom/image/icons/logo-dotimmersive-landing.png"/>
+            <p class="loader-subheading">Loading interactive 3D model</p>
+        </div>
+        <div class="loader-spinner" > 
+            <p id="loadPercentage" >0</p>
+        </div>
+        <div class="loader"></div>
+    </div>
+
+    <div id="configurator_container">       
+        <div class="intro-overlay"> 
+            <div class="intro-controls" style="">
+                <img src="custom/image/icons/intro1.png">
+            </div>
+            <!-- <p id="intro-intructions"> Click on one of the Circular Marker on the wheel<br>to open customizer option</p> -->
+            <div class="intro-about">
+                <h2>we are dot immersive</h2>
+                <p>
+                    we craft immersive & interactive 360&#176 <br>
+                    digital experience. for the web and mobile.
+                </p>
+            </div>
+            
+        </div>
+        <div class="configurator">
+            <div id="scrollContainer">
+                <div id="closeConfigurator">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </div>
+                <div id="RimConfiguratorMenu">
+                    <div class="card" >
+                        <div class="card-body">
+                            <p class="marker-content-header sidebar-header" style="color:#fff; text-align:center">CUSTOMISE</p>
+                        </div>
+                    </div>
+                    <hr class="divider-gradient"/>
+                            
+                    <div class="card" >
+                        <div class="card-title">STANDARD COLOR</div>
+                        <div class="card-body">
+                            <button type="button" class="btn btn-circle-color more-color" style="background-color: #282828;" onclick="changeColor( 'rim', 0x282828 )"></button>
+                            <button type="button" class="btn btn-circle-color" style="background-color: #ff0000;" onclick="changeColor( 'rim', 0xff0000 )"></button>
+                            <button type="button" class="btn btn-circle-color" style="background-color: #ff6800;" onclick="changeColor( 'rim', 0xff6800 )"></button>
+                            <button type="button" class="btn btn-circle-color" style="background-color: #f7de26;" onclick="changeColor( 'rim', 0xf7de26 )"></button>
+                            <button type="button" class="btn btn-circle-color more-color" style="background-color: #110f77;" onclick="changeColor( 'rim', 0x110f77 )"></button>
+                            <button type="button" class="btn btn-circle-color" style="background-color: #620c0c;" onclick="changeColor( 'rim', 0x620c0c )"></button>
+                            <button type="button" class="btn btn-circle-color" style="background-color: #ffffff;" onclick="changeColor( 'rim', 0xffffff )"></button>
+                            <button type="button" class="btn btn-circle-color" style="background-color: #a29c92;" onclick="changeColor( 'rim', 0xa29c92 )"></button>
+                            <button type="button" class="btn btn-circle-color" style="background-color: #000000;" onclick="changeColor( 'rim', 0x000000 )"></button>
+                            <button type="button" class="btn btn-circle-color" style="background-color: #298b3a;" onclick="changeColor( 'rim', 0x298b3a )"></button>
+                        </div>
+                    </div><hr class="divider-gradient" />
+                    <div class="card" id="RimConfigurator">
+                        <div class="card-title">CUSTOM COLOR</div>
+                        <div class="card-body">
+                            <div class="my-color-picker" id="hubColor" value="#404040"></div>
+                        </div>
+                    </div>
+                    <hr class="divider-gradient"/>
+            
+                    <div class="card">
+                        <div class="card-title">RIM TYPE</div>
+                        <div class="card-body">
+                            <div class="RimTypeSelectorDiv">
+                                <div id="Thumbnail-RimType1">
+                                    <img src="custom/image/icons/RimType1.png"/> 
+                                </div>
+                                <div id="Thumbnail-RimType2">
+                                    <img src="custom/image/icons/RimType2.png"/>                     
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div><hr class="divider-gradient" />
+                    <div class="card" id="Glossness-card">
+                        <div class="Glossness-div">
+                            <div class="Glossness-div-title">
+                                <p> Glossiness </p>
+                            </div>
+                            <div class="switch">
+                              <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox" checked>
+                              <label for="cmn-toggle-1"></label>
+                            </div>                        
+                        </div>
+                    </div>
+                </div>
+
+                <div id="BrakeConfiguratorMenu">
+                    <div class="card">
+                        <div class="card-title">STANDARD COLOR</div>
+                        <div class="card-body">
+                            <button type="button" class="btn btn-circle-color" style="background-color: #dedede;" onclick="changeColor( 'brake', 0xdedede )"></button>
+                            <button type="button" class="btn btn-circle-color" style="background-color: #ff0000;" onclick="changeColor( 'brake', 0xff0000 )"></button>
+                            <button type="button" class="btn btn-circle-color" style="background-color: #ff6800;" onclick="changeColor( 'brake', 0xff6800 )"></button>
+                            <button type="button" class="btn btn-circle-color" style="background-color: #f7de26;" onclick="changeColor( 'brake', 0xf7de26 )"></button>
+                            <button type="button" class="btn btn-circle-color" style="background-color: #110f77;" onclick="changeColor( 'brake', 0x110f77 )"></button>
+                            <button type="button" class="btn btn-circle-color" style="background-color: #620c0c;" onclick="changeColor( 'brake', 0x620c0c )"></button>
+                            <button type="button" class="btn btn-circle-color" style="background-color: #ffffff;" onclick="changeColor( 'brake', 0xffffff )"></button>
+                            <button type="button" class="btn btn-circle-color" style="background-color: #a29c92;" onclick="changeColor( 'brake', 0xa29c92 )"></button>
+                            <button type="button" class="btn btn-circle-color" style="background-color: #252525;" onclick="changeColor( 'brake', 0x252525 )"></button>
+                            <button type="button" class="btn btn-circle-color" style="background-color: #002d08;" onclick="changeColor( 'brake', 0x002d08 )"></button>
+                        </div>
+                    </div><hr class="divider-gradient" />
+                    <div class="card" id="BrakeConfigurator">
+                        <div class="card-title">CUSTOM COLOR</div>
+                        <div class="card-body">
+                            <div class="my-color-picker" id="brakeColor"></div>
+                        </div>
+                    </div><hr class="divider-gradient" />
+                </div>       
+            </div>
+        </div>
+
+        <div class="marker" id="MarkerTyre">
+            <div class="marker-background" loop="infinite">
+                <!-- <div class="marker-left-icon">
+                    <i class="fa fa-sliders" aria-hidden="true"></i>                    
+                </div> -->
+                <div class="marker-content-div">
+                    <p class="marker-content-header">ROBUST TYRE</p>
+                    <p id="" class="SeeDetails">Add feature details here...</p>                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="marker" id="MarkerTyreClone">
+            <div class="marker-background"  loop="infinite">
+                <!-- <div class="marker-left-icon">
+                    <i class="fa fa-sliders" aria-hidden="true"></i>                    
+                </div> -->
+                <div class="marker-content-div">
+                    <p class="marker-content-header">ROBUST TYRE</p>
+                    <p id="" class="SeeDetails">IS MADE FROM SPECIAL ...</p>                    
+                </div>
+            </div>
+        </div>
+
+        <div class="marker" id="MarkerDisc">
+            <div class="marker-background" loop="infinite">
+                <div class="marker-left-icon">
+                    <i class="fa fa-sliders" aria-hidden="true"></i>                    
+                </div>
+                <div class="marker-content-div">
+                    <p class="marker-content-header">POWERFULL BRAKE</p>
+                    <p id="BrakeCustomizer" class="SeeDetails">IS MADE FROM SPECIAL ...</p>                    
+                </div>
+            </div>
+        </div>
+       <!--  <div class="marker" id="MarkerDiscClone">
+            <div class="marker-background" loop="infinite">
+                <div class="marker-left-icon">
+                    <i class="fa fa-sliders" aria-hidden="true"></i>                    
+                </div>
+                <div class="marker-content-div">
+                    <p class="marker-content-header">POWERFULL BRAKE</p>
+                    <p id="BrakeCustomizer" class="SeeDetails">IS MADE FROM SPECIAL ...</p>                    
+                </div>
+            </div>
+        </div> -->
+
+        <div class="marker" id="MarkerRim">
+            <div class="marker-background" loop="infinite">
+                <div class="marker-left-icon">
+                    <i class="fa fa-sliders" aria-hidden="true"></i>                    
+                </div>
+                <div class="marker-content-div">
+                    <p class="marker-content-header">COOL ALLOY</p>
+                    <p id="RimCustomizer" class="SeeDetails">Add feature details here...</p>                    
+                </div>            
+            </div>
+        </div>
+        <div class="marker" id="MarkerRimClone">
+            <div class="marker-background" loop="infinite">
+                <div class="marker-left-icon">
+                    <i class="fa fa-sliders" aria-hidden="true"></i>                    
+                </div>
+                <div class="marker-content-div">
+                    <p class="marker-content-header">COOL ALLOY</p>
+                    <p id="RimCustomizer" class="SeeDetails">IS MADE FROM SPECIAL ...</p>                    
+                </div>
+            </div>               
+        </div> 
+
+        <div id="controls-btn-panel" class="controls-btn-panel list-group">
+            <button class="btn btn-default control-buttons" id="ColorCustomizer_shortcut" data-toggle="" title="" style="padding:0px" >
+                <img src="custom/image/icons/icon-colour.svg" style="width:26px">
+            </button>
+            <button class="btn btn-default control-buttons" id='ExplodeButton' data-toggle="" explode="true" title="" onclick="">
+                <i class="fa fa-arrows-h" aria-hidden="true" id="Explode"></i>
+            </button>
+            <button class="btn btn-default control-buttons" id='AutoRotateButton' data-toggle="" title="" value="true" onclick="">
+                <i class="fa fa-rotate-left" aria-hidden="true" id="AutoRotate"></i>
+            </button>
+            
+            <button class="btn btn-default control-buttons" id='fullscreenButton' data-toggle="" title="" >
+                <i class="fa fa-expand" aria-hidden="true" id="fullscreen" ></i>
+            </button>
+            <!-- <li ><button class="btn btn-default control-buttons" id='HDButton' data-toggle="tooltip" title="Quality Level" >
+                <i class="fa fa-desktop" aria-hidden="true" id="HD"></i>
+            </button> -->
+            <button class="btn btn-default control-buttons" id="soundButton" data-toggle="" title="" >
+                <i class="fa fa-volume-up" aria-hidden="true" id="sound" ></i>
+            </button>
+            <button class="btn btn-default control-buttons" id="tool-extender" >
+                <i class="fa fa-ellipsis-v" aria-hidden="true" id="sound" ></i>
+            </button>
+
+            <ul id="popover-content" class="list-group custom-popover">
+                <!-- <button id="Quality_Ultra" class="list-group-item">Ultra</button>
+                <button id="Quality_High" class="list-group-item">High</button> -->
+                <button id="Quality_Medium" class="list-group-item active">High</button>  <!-- Is actuall a 2K resolution-->
+                <button id="Quality_Low" class="list-group-item">Medium</button>   <!-- Is actuall a 1K resolution-->
+            </ul>
+        </div>
+        <div id="footer">
+            <div id="footer-right"> 
+                <a href="http://www.dotimmersive.com" target="_blank">Home</a> // <a href="http://www.dotimmersive.com" target="_blank">About Us</a> // <a href="http://www.dotimmersive.com" target="_blank">Our Services</a>
+            </div>
+            <div id="footer-left">
+                    &#169; 2017 <a href="http://www.masalanerds.com" target="_blank">Masala Nerds</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="loader-spinner HD-SD" > 
+        <p id="imageloaderpercentage">0</p>
+        <div class="loader"></div>
+    </div>
+
+    <audio id='mouseSoundFx' src='custom/sounds/soundfx1.wav'/>    
+
+    <script src="custom/js/main-bck.js"></script>
+    <script src="custom/js/appEvents-bck.js"></script>
+
+</body>
+</html>   
